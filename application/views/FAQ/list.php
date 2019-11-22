@@ -18,9 +18,16 @@
 	              <td><?= $i++; ?></td>
 	              <td><?= $faq['ques'];?></td>
 	              <td><?= $faq['ans'];?></td>
-	              <td><a href="#" class="text-danger mr-3"><i class="ti-trash"></i> Delete</a><a href="#" class="text-warning"><i class="ti-pencil-alt"></i> Edit</a></td>
+	              <td><a href="<?= base_url();?>index.php/FAQ/delete_faq/<?= $faq['id'];?>" class="text-danger mr-3"><i class="ti-trash"></i> Delete</a></td>
 	            </tr>
-	            <?php endforeach; ?>
+	            <?php 
+	        		endforeach;
+	        		if($i == 1 ){
+	        	?>
+	        	<tr>
+	        		<td colspan="4" class="text-center">No Frequently asked Questions!!!</td>
+	        	</tr>
+	        	<?php } ?>
 	          </tbody>
 	        </table>
 	      </div>

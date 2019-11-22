@@ -13,6 +13,11 @@ class FAQ extends CI_Controller {
 		return $this->Fetch->fetch_all_faq();
 	}
 	public function delete_faq($id){
-
+		$this->load->model('Update');
+		$this->Update->delete_faq($id);
+		redirect('FAQ/all_faq');
+	}
+	public function add_faq(){
+		
 	}
 }

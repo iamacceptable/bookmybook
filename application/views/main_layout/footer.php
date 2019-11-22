@@ -12,6 +12,10 @@
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="<?= base_url();?>assets/js/dashboard.js"></script>
+  <!-- file-upload js -->
+  
+  <script src="<?= base_url();?>assets/js/chart.js"></script>
+  <script src="<?= base_url();?>assets/js/file-upload.js"></script>
   <!-- End custom js for this page-->
 </body>
 

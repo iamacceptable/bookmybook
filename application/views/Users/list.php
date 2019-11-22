@@ -10,32 +10,35 @@
 	        <table class="table table-hover">
 	          <thead>
 	            <tr>
-	              <th>S.No.</th>
+	              <th>User Id</th>
 	              <th>Full Name</th>
 	              <th>Email</th>
 	              <th>Phone</th>
 	              <th>Address</th>
-	              <th>State</th>
-	              <th>City</th>
-	              <th>Course</th>
+	              <th>Refer Code</th>
 	              <th>Status</th>
 	              <th>Action</th>
 	            </tr>
 	          </thead>
 	          <tbody>
+	          	<?php foreach($users as $user):?>
 	            <tr>
-	              <td>1</td>
-	              <td><a href="#">XYZ</a></td>
-	              <td>xyz@abc.com</td>
-	              <td>+917924987XX</td>
-	              <td>Vilom Nangar</td>
-	              <td>UP</td>
-	              <td>Noida</td>
-	              <td>CSE</td>
+	              <td><?= $user['id'];?></td>
+	              <td><?= $user['name'];?></td>
+	              <td><?= $user['email'];?></td>
+	              <td><?= $user['mobile'];?></td>
+	              <td><?= $user['address'].", ".$user['city'].", ".$user['state']." ".$user['pincode'] ;?></td>
+	              <td><?= $user['refcode'];?></td>
+	              <?php if($user['flag'] == '1'){ ?>
+	              <td><label class="badge badge-success">Activated</label></td>
+	              <td><a href="#" class="text-danger mr-3"><i class="ti-pin"></i> Deactivate</a></td>
+	          	   <?php } else{?>
 	              <td><label class="badge badge-danger">Deactivated</label></td>
 	              <td><a href="#" class="text-success mr-3"><i class="ti-pin"></i> Activate</a></td>
+	          <?php }  ?>
+
 	            </tr>
-	            
+	            <?php endforeach;?>
 	          </tbody>
 	        </table>
 	      </div>

@@ -8,19 +8,10 @@ class Admin extends CI_Controller {
 		$this->load->view('Auth/auth',$dataLoad);
 	}
 	public function dashboard(){
-		$dataLoad['header'] = 'Dashboard';
-		$dataLoad['sidebar'] = 'Dashboard';
-		$this->load->view('Dashboard/dashboard',$dataLoad);
-	}
-	public function add_new_user(){
-		$dataLoad['header'] = 'Users | Add new User';
-		$dataLoad['sidebar'] = 'Users';
-		$this->load->view('Users/add_new',$dataLoad);
+		redirect('Dashboard');
 	}
 	public function all_users(){
-		$dataLoad['header'] = 'Users | All Users';
-		$dataLoad['sidebar'] = 'Users';
-		$this->load->view('Users/all_list',$dataLoad);
+		redirect('Users');
 	}
 	public function all_orders(){
 		$dataLoad['header'] = 'Orders';
@@ -43,9 +34,7 @@ class Admin extends CI_Controller {
 		$this->load->view('FAQ/add_new',$dataLoad);
 	}
 	public function all_faq(){
-		$dataLoad['header'] ='FAQs';
-		$dataLoad['sidebar'] = 'FAQ';
-		$this->load->view('FAQ/all_list',$dataLoad);
+		redirect('Faq/all_faq');
 	}
 	public function add_new_category(){
 		$dataLoad['header'] ='Add New Category';

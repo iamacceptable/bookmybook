@@ -1,13 +1,13 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item">
-      <a class="nav-link" href="<?= base_url();?>index.php/Admin/dashboard">
+      <a class="nav-link" href="<?= base_url();?>index.php/Dashboard">
         <i class="ti-shield menu-icon"></i>
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<?= base_url();?>index.php/Admin/all_users">
+      <a class="nav-link" href="<?= base_url();?>index.php/Users">
         <i class="ti-user menu-icon"></i>
         <span class="menu-title">All Users</span>
       </a>
@@ -39,7 +39,7 @@
       <div class="collapse" id="faq">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Admin/add_new_faq">Add New FAQ</a></li>
-          <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Admin/all_faq">All FAQ</a></li>
+          <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/FAQ/all_faq">All FAQ</a></li>
         </ul>
       </div>
     </li>

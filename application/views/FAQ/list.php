@@ -13,13 +13,14 @@
 	            </tr>
 	          </thead>
 	          <tbody>
+	          	<?php $i=1; foreach($faqs as $faq):?>
 	            <tr>
-	              <td>1</td>
-	              <td>What is BMB?</td>
-	              <td>Book My Book</td>
+	              <td><?= $i++; ?></td>
+	              <td><?= $faq['ques'];?></td>
+	              <td><?= $faq['ans'];?></td>
 	              <td><a href="#" class="text-danger mr-3"><i class="ti-trash"></i> Delete</a><a href="#" class="text-warning"><i class="ti-pencil-alt"></i> Edit</a></td>
 	            </tr>
-	            
+	            <?php endforeach; ?>
 	          </tbody>
 	        </table>
 	      </div>

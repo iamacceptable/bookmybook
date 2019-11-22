@@ -29,12 +29,10 @@ class Admin extends CI_Controller {
 		$this->load->view('Refer/refer',$dataLoad);
 	}
 	public function add_new_faq(){
-		$dataLoad['header'] ='Add New FAQ';
-		$dataLoad['sidebar'] = 'FAQ';
-		$this->load->view('FAQ/add_new',$dataLoad);
+		redirect('FAQ/add_faq');
 	}
 	public function all_faq(){
-		redirect('Faq/all_faq');
+		redirect('FAQ/all_faq');
 	}
 	public function add_new_category(){
 		$dataLoad['header'] ='Add New Category';

@@ -14,5 +14,24 @@ class Fetch extends CI_Model {
 		$result = $this->db->get();
 		return $result->result_array();
 	}
+	public function fetch_all_feedbacks(){
+		$this->db->select('*');
+		$this->db->from('tbl_feedback');
+		$result = $this->db->get();
+		return $result->result_array();
+	}
+	public function fetch_all_books(){
+		$this->db->select('*');
+		$this->db->from('tbl_books');
+		$result = $this->db->get();
+		return $result->result_array();
+	}
+	public function fetch_all_categories(){
+		$SQL = "SELECT tbl_category.id, tbl_category.name, tbl_category.img, COUNT(tbl_books.id) count FROM tbl_category LEFT JOIN tbl_books ON tbl_category.name=tbl_books.category GROUP BY tbl_category.name ORDER BY tbl_category.name";
+
+		$query = $this->db->query($SQL);
+
+		return $query->result_array();
+	}
 
 }

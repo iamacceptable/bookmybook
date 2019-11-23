@@ -35,9 +35,7 @@ class Admin extends CI_Controller {
 		redirect('FAQ/all_faq');
 	}
 	public function add_new_category(){
-		$dataLoad['header'] ='Add New Category';
-		$dataLoad['sidebar'] = 'Books';
-		$this->load->view('Books/add_new_category',$dataLoad);
+		redirect('Books/category');
 	}
 	public function add_new_book(){
 		$dataLoad['header'] ='Add New Book';
@@ -50,9 +48,7 @@ class Admin extends CI_Controller {
 		$this->load->view('Books/add_multiple_book',$dataLoad);
 	}
 	public function all_books(){
-		$dataLoad['header'] ='All Books';
-		$dataLoad['sidebar'] = 'Books';
-		$this->load->view('Books/all_list',$dataLoad);
+		redirect('Books/all_books');
 	}
 	public function books_not_found(){
 		$dataLoad['header'] ='Filter Not found';
@@ -70,9 +66,7 @@ class Admin extends CI_Controller {
 		$this->load->view('Reciepts/reports',$dataLoad);
 	}
 	public function feedbacks(){
-		$dataLoad['header'] ='Feedbacks';
-		$dataLoad['sidebar'] = 'Feedbacks';
-		$this->load->view('Feedbacks/feedbacks',$dataLoad);
+		redirect('Feedbacks');
 	}
 
 }

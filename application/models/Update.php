@@ -6,4 +6,8 @@ class Update extends CI_Model {
 		$this->db->where('id',$id);
 		$this->db->delete('tbl_faq');
 	}
+	public function delete_category($id){
+		$this->db->where('id',$id);
+		$this->db->delete('tbl_category');
+	}
 }

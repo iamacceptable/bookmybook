@@ -13,13 +13,14 @@
 	            </tr>
 	          </thead>
 	          <tbody>
+	          	<?php $i=1; foreach($categories as $category):?>
 	            <tr>
-	              <td>1</td>
-	              <td>xyz</td>
-	              <td>234</td>
-	              <td><a href="#" class="text-danger mr-3"><i class="ti-trash"></i> Delete</a></td>
+	              <td><?= $i++;?></td>
+	              <td><a target="_blank" href="<?= $category['img'];?>"><?= $category['name'];?></a></td>
+	              <td><?= $category['count'];?></td>
+	              <td><a href="<?= base_url();?>index.php/Books/delete_category/<?= $category['id'];?>" class="text-danger mr-3"><i class="ti-trash"></i> Delete</a></td>
 	            </tr>
-	            
+	            <?php endforeach;?>
 	          </tbody>
 	        </table>
 	      </div>

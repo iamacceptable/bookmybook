@@ -2,50 +2,42 @@
 	<div class="col-md-12 grid-margin stretch-card">
 	  <div class="card">
 	    <div class="card-body">
-	      <p class="card-title mb-0">Click on the Book Title to View book's display picture.</p>
+	      <p class="card-title mb-0">Click on the Book Title to view book's details.</p>
 	      <div class="table-responsive">
 	        <table class="table table-hover">
 	          <thead>
-	            <tr>
+	            <tr class="text-center">
 	              <th>S.No.</th>
+	              <th>ISBN Number</th>
 	              <th>Book Title</th>
-	              <th>Book Description</th>
-	              <th>Price</th>
-	              <th>Category</th>
-	              <th>Author Name</th>
-	              <th>Publisher Name</th>
-	              <th>Rating</th>
+	              <th>Publication</th>
 	              <th>Status</th>
 	            </tr>
 	          </thead>
 	          <tbody>
-	            <tr>
-	              <td>1</td>
-	              <td><a href="#">XYZ</a></td>
-	              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	              quis nostrud</td>
-	              <td>500</td>
-	              <td>Coding</td>
-	              <td>ABC</td>
-	              <td>XSA</td>
-	              <td>4.2</td>
-	              <td><label class="badge badge-danger">Not Available</label></td>
+	          	<?php $i=1; foreach($books as $book):?>
+	            <tr class="text-center">
+	              <td><?= $i++; ?></td>
+	              <td><?= $book['isbn'] ?></td>
+	              <td><a data-toggle="modal" data-target="#c<?= $book['isbn'];?>"><?= $book['title'] ?></a></td>
+	              <td><?= $book['publication'] ?></td>
+	              <td>
+	              	<?php if($book['flag'] == '1'){ ?>
+	              		<label class="badge badge-success">Available</label>
+	              	<?php } else{?>
+	              		<label class="badge badge-danger">Not Available</label>
+	              	<?php }?>
+	              </td>
 	            </tr>
+	              <?php $this->view('Books/book_details',$book);?>
+	            <?php
+	            	endforeach;
+	            	if($i == 1){
+	            ?>
 	            <tr>
-	              <td>2</td>
-	              <td><a href="#">XYZ</a></td>
-	              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	              quis nostrud</td>
-	              <td>500</td>
-	              <td>Coding</td>
-	              <td>ABC</td>
-	              <td>XSA</td>
-	              <td>4.2</td>
-	              <td><label class="badge badge-success">Available</label></td>
+	              <td class="text-center" colspan="5">No Books Yet!</td>
 	            </tr>
-	            
+	        	<?php }?>
 	          </tbody>
 	        </table>
 	      </div>

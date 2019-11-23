@@ -64,10 +64,10 @@
       </a>
       <div class="collapse" id="books">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Admin/add_new_category">Add New Category</a></li>
+          <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Books/category">Book Categories</a></li>
           <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Admin/add_new_book">Add New Book</a></li>
           <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Admin/add_multiple_book">Add Multiple Books</a></li>
-          <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Admin/all_books">All Books</a></li>
+          <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Books/all_books">All Books</a></li>
         </ul>
       </div>
     </li>
@@ -91,7 +91,7 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<?= base_url();?>index.php/Admin/feedbacks">
+      <a class="nav-link" href="<?= base_url();?>index.php/Feedbacks">
         <i class="ti-thought menu-icon"></i>
         <span class="menu-title">Feedbacks</span>
       </a>

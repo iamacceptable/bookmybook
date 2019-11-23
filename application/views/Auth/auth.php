@@ -13,12 +13,14 @@
               </div>
               <h4>Hello! let's get to the Panel</h4>
               <h6 class="font-weight-light">Sign in to given ceredentials.</h6>
-              <form class="pt-3" action="<?= base_url();?>index.php/Admin/dashboard" method="POST">
+              <form class="pt-3" action="<?= base_url();?>index.php/Authentication/auth" method="POST">
                 <div class="form-group">
-                  <input type="email" class="form-control form-control" id="username" placeholder="Username">
+                  <input type="email" name="username" class="form-control form-control" id="username" placeholder="Username">
+                  <small class="text-danger"><?= form_error('username');?></small>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control" id="password" placeholder="Password">
+                  <input type="password" name="password" class="form-control form-control" id="password" placeholder="Password">
+                  <small class="text-danger"><?= form_error('password');?></small>
                 </div>
                 <div class="mt-3">
                   <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>

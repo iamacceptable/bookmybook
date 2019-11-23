@@ -2,6 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
+	function __construct() {
+        parent::__construct();
+        if(!isset($_SESSION['login'])){
+        	redirect('Authentication');
+        }
+    }
 	public function index()
 	{
 		$dataLoad['active'] = $this->fetch_active_user_count();

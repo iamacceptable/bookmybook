@@ -26,6 +26,13 @@ class Fetch extends CI_Model {
 		$result = $this->db->get();
 		return $result->result_array();
 	}
+
+	public function fetch_categories(){
+		$this->db->select('name');
+		$this->db->from('tbl_category');
+		$result = $this->db->get();
+		return $result->result_array();
+	}	
 	public function fetch_all_categories(){
 		$SQL = "SELECT tbl_category.id, tbl_category.name, tbl_category.img, COUNT(tbl_books.id) count FROM tbl_category LEFT JOIN tbl_books ON tbl_category.name=tbl_books.category GROUP BY tbl_category.name ORDER BY tbl_category.name";
 
@@ -33,5 +40,12 @@ class Fetch extends CI_Model {
 
 		return $query->result_array();
 	}
-
+	public function auth($user, $pass){
+		$this->db->select('id');
+		$this->db->from('tbl_admin');
+		$this->db->where('username', $user);
+		$this->db->where('password', $pass);
+		$result = $this->db->get();
+		return $result->result_array();
+	}
 }

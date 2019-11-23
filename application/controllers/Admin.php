@@ -2,10 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
+	function __construct() {
+        parent::__construct();
+        if(!isset($_SESSION['login'])){
+        	redirect('Authentication');
+        }
+    }
 	public function index()
 	{
-		$dataLoad['header'] = 'Authentication';
-		$this->load->view('Auth/auth',$dataLoad);
+		redirect('Admin/dashboard');
 	}
 	public function dashboard(){
 		redirect('Dashboard');
@@ -38,9 +43,7 @@ class Admin extends CI_Controller {
 		redirect('Books/category');
 	}
 	public function add_new_book(){
-		$dataLoad['header'] ='Add New Book';
-		$dataLoad['sidebar'] = 'Books';
-		$this->load->view('Books/add_new_book',$dataLoad);
+		redirect('Books/new_book');
 	}
 	public function add_multiple_book(){
 		$dataLoad['header'] ='Add Multiple Book';
@@ -67,6 +70,11 @@ class Admin extends CI_Controller {
 	}
 	public function feedbacks(){
 		redirect('Feedbacks');
+	}
+	public function logout(){
+		$sessionData = array('userId', 'login');
+		$this->session->unset_userdata($sessionData);
+		redirect('Authentication');
 	}
 
 }

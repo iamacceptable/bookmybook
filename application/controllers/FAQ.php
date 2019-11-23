@@ -2,6 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class FAQ extends CI_Controller {
+	function __construct() {
+        parent::__construct();
+        if(!isset($_SESSION['login'])){
+        	redirect('Authentication');
+        }
+    }
 	public function all_faq(){
 		$dataLoad['faqs'] = $this->fetch_all_faq();
 		$dataLoad['header'] ='FAQs';
@@ -36,7 +42,7 @@ class FAQ extends CI_Controller {
 			$this->load->model('Upload_Data');
 			$this->Upload_Data->add_new_faq($dataPost);
 			echo "<script>
-					alert('New Frequently Asked Question Added Succefully!!!');
+					alert('New Frequently Asked Question Added Successfully!!!');
 					window.location.href='all_faq';
 				</script>";
 		}

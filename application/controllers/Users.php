@@ -2,6 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Users extends CI_Controller {
+	function __construct() {
+        parent::__construct();
+        if(!isset($_SESSION['login'])){
+        	redirect('Authentication');
+        }
+    }
 	public function index(){
 		$dataLoad['users'] = $this->fetch_all_users();
 		$dataLoad['header'] = 'Users | All Users';

@@ -2,7 +2,7 @@
 	<div class="col-md-12 grid-margin stretch-card">
 	  <div class="card">
 	    <div class="card-body">
-	      <p class="card-title mb-0">Click on the User Name to View his/her display picture.</p>
+	      
 	      <div class="text-right"> 
 	      		<a class="btn btn-success btn-sm" href="#">Export to Excel</a>
 	      </div>

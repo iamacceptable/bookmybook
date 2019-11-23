@@ -4,11 +4,11 @@
       <h6 class="font-weight-light text-center">Fill the details of the FAQs  </h6>
       <form class="pt-3" action="<?= base_url();?>index.php/FAQ/add_new_faq" method="POST">
         <div class="form-group">
-          <input type="text" name="faqq" class="form-control form-control-sm" id="fques" placeholder="Enter FAQ Question" value="<?= set_value('faqq');?>">
+          <input type="text" name="faqq" required class="form-control form-control-sm" id="fques" placeholder="Enter FAQ Question" value="<?= set_value('faqq');?>">
           <small class="text-danger"><?= form_error('faqq');?></small>
         </div>
         <div class="form-group">
-          <input type="text" name="faqa" class="form-control form-control-sm" id="fans" placeholder="Enter FAQ Answer" value="<?= set_value('faqa');?>">
+          <input type="text" name="faqa" class="form-control form-control-sm" id="fans" placeholder="Enter FAQ Answer" value="<?= set_value('faqa');?>" required>
           <small class="text-danger"><?= form_error('faqa'); ?></small>
         </div>
         <div class="mt-3">

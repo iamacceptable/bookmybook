@@ -26,7 +26,7 @@
                     <p><b>Total Weight:</b> <?= $weight;?></p>
                     <p><b>Price:</b> ₹<?= $mrp;?></p>
                     <p class="text-center">
-                        <?php if($flag == '1'){ ?>
+                        <?php if($flag == 'Available'){ ?>
                             <label class="badge badge-success">Available</label>
                         <?php } else{?>
                             <label class="badge badge-danger">Not Available</label>

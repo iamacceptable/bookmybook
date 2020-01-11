@@ -22,7 +22,7 @@
 	              <td><a data-toggle="modal" data-target="#c<?= $book['isbn'];?>"><?= $book['title'] ?></a></td>
 	              <td><?= $book['publication'] ?></td>
 	              <td>
-	              	<?php if($book['flag'] == '1'){ ?>
+	              	<?php if($book['flag'] == 'Available'){ ?>
 	              		<label class="badge badge-success">Available</label>
 	              	<?php } else{?>
 	              		<label class="badge badge-danger">Not Available</label>

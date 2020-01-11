@@ -10,25 +10,43 @@
 	          <thead>
 	            <tr>
 	              <th>S.No.</th>
-	              <th>Transaction ID</th>
 	              <th>User Id</th>
-	              <th>Amount</th>
-	              <th>Balance Left (₹)</th>
-	              <th>Date</th>
-	              <th>Time</th>
+	              <th>User Name</th>
+	              <th>Wallet Balance</th>
+	              <th>Action</th>
 	            </tr>
 	          </thead>
 	          <tbody>
+	          	<?php
+	          		$i=1;
+	          		foreach($wallets as $wallet):
+	          	?>
 	            <tr>
-	              <td>1</td>
-	              <td>12425</td>
-	              <td>12</td>
-	              <td>₹ 100</td>
-	              <td>₹ 500</td>
-	              <td>5-10-2019</td>
-	              <td>13:25</td>
+	              <td><?= $i++;?></td>
+	              <td><?= $wallet['id']; ?></td>
+	              <td><?= $wallet['name']; ?></td>
+	              <td><?= "₹ ".$wallet['wallet'];?></td>
+	              <td style="padding-bottom: 0px;">
+	              	<form action="<?= base_url();?>index.php/Wallet/update_wallet/<?= $wallet['id']?>" method="POST">
+	              		<div class="form-group">
+                    		<div class="input-group">
+		                      <input type="text" class="form-control" name="amount" placeholder="Amount(₹)" aria-label="Amount">
+		                      <div class="input-group-append">
+		                        <button class="btn btn-sm btn-success" type="submit">Add Money</button>
+		                      </div>
+		                    </div>
+		                </div>
+	              	</form>
+	              </td>
 	            </tr>
-	            
+	            <?php
+	            	endforeach;
+	            	if($i == 1){
+	            ?>
+	            <tr>
+	            	<td colspan="5" class="text-center">No Users Wallet!!</td>
+	            </tr>
+	        	<?php }?>
 	          </tbody>
 	        </table>
 	      </div>

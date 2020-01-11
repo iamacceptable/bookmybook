@@ -13,23 +13,23 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<?= base_url();?>index.php/Admin/all_orders">
-        <i class="ti-shield menu-icon"></i>
-        <span class="menu-title">Orders</span>
-      </a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link" href="<?= base_url();?>index.php/Admin/bmb_wallet">
         <i class="ti-wallet menu-icon"></i>
         <span class="menu-title">BMB Wallet</span>
       </a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="<?= base_url();?>index.php/Admin/all_orders">
+        <i class="ti-shield menu-icon"></i>
+        <span class="menu-title">Orders</span>
+      </a>
+    </li><!-- 
+    <li class="nav-item">
       <a class="nav-link" href="<?= base_url();?>index.php/Admin/refer_n_earn">
         <i class="ti-share menu-icon"></i>
         <span class="menu-title">Refer &amp; Earn</span>
       </a>
-    </li>
+    </li> -->
     <li class="nav-item ">
       <a class="nav-link" data-toggle="collapse" href="#faq" aria-expanded="false" aria-controls="ui-basic">
         <i class="ti-bag menu-icon"></i>
@@ -66,7 +66,7 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Books/category">Book Categories</a></li>
           <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Books/new_book">Add New Book</a></li>
-          <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Admin/add_multiple_books">Add Multiple Books</a></li>
+          <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Admin/add_multiple_book">Add Multiple Books</a></li>
           <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Books/all_books">All Books</a></li>
         </ul>
       </div>
@@ -76,7 +76,7 @@
         <i class="ti-support menu-icon"></i>
         <span class="menu-title">Books Not Found</span>
       </a>
-    </li>
+    </li><!-- 
     <li class="nav-item ">
       <a class="nav-link" data-toggle="collapse" href="#recipet" aria-expanded="false" aria-controls="ui-basic">
         <i class="ti-receipt menu-icon"></i>
@@ -89,7 +89,7 @@
           <li class="nav-item"> <a class="nav-link" href="<?= base_url();?>index.php/Admin/reports">Reports</a></li>
         </ul>
       </div>
-    </li>
+    </li> -->
     <li class="nav-item">
       <a class="nav-link" href="<?= base_url();?>index.php/Feedbacks">
         <i class="ti-thought menu-icon"></i>

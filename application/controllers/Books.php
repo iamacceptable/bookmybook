@@ -136,4 +136,156 @@ class Books extends CI_Controller {
 				}
 		}
 	}
+	public function books_not_found(){
+		$dataLoad['books'] = $this->fetch_books_not_found();
+		$dataLoad['header'] ='Filter Not found';
+		$dataLoad['sidebar'] = 'Books';
+		$this->load->view('Books/bnf',$dataLoad);
+	}
+	public function fetch_books_not_found(){
+		$this->load->model('Fetch');
+		return $this->Fetch->fetch_books_not_found();
+	}
+	public function add_multiple_book(){
+		$dataLoad['header'] ='Add Multiple Book';
+		$dataLoad['sidebar'] = 'Books';
+		$this->load->view('Books/add_multiple_book',$dataLoad);
+	}
+	// import excel data
+    public function upload_excel_data() {
+        $this->load->library('excel');
+        $path = './assets/uploads/booksExcelData/';
+        
+        $config['upload_path'] = $path;
+        $config['allowed_types'] = 'xlsx|xls';
+        $config['remove_spaces'] = TRUE;
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if (!$this->upload->do_upload('booksExcel')) {
+            $error = array('error' => $this->upload->display_errors());
+        } else {
+            $data = array('upload_data' => $this->upload->data());
+        }
+        
+        if (!empty($data['upload_data']['file_name'])) {
+            $import_xls_file = $data['upload_data']['file_name'];
+        } else {
+            $import_xls_file = 0;
+        }
+        $inputFileName = $path . $import_xls_file;
+        try {
+            $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
+            $objReader = PHPExcel_IOFactory::createReader($inputFileType);
+            $objPHPExcel = $objReader->load($inputFileName);
+        } catch (Exception $e) {
+            die('Error loading file "' . pathinfo($inputFileName, PATHINFO_BASENAME)
+                    . '": ' . $e->getMessage());
+        }
+        $allDataInSheet = $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
+        
+        $arrayCount = count($allDataInSheet);
+        $flag = 0;
+        $createArray = array('isbn','title','author','publication', 'volume', 'year', 'edition', 'reprint', 'binding', 'pages','weight','mrp','category','img','flag');
+        $makeArray = array('isbn' => 'isbn',
+        					'title' => 'title',
+        					'author' => 'author',
+        					'publication' => 'publication',
+        					'volume' => 'volume',
+        					'year' => 'year',
+        					'edition' => 'edition',
+        					'reprint' => 'reprint',
+        					'binding' => 'binding',
+        					'pages' => 'pages',
+        					'weight' => 'weight',
+        					'mrp' => 'mrp',
+        					'category' => 'category',
+        					'flag' => 'flag'
+        				);
+        $SheetDataKey = array();
+        foreach ($allDataInSheet as $dataInSheet) {
+            foreach ($dataInSheet as $key => $value) {
+                if (in_array(trim($value), $createArray)) {
+                    $value = preg_replace('/\s+/', '', $value);
+                    $SheetDataKey[trim($value)] = $key;
+                } else {
+                    
+                }
+            }
+        }
+        $data = array_diff_key($makeArray, $SheetDataKey);
+       
+        if (empty($data)) {
+            $flag = 1;
+        }
+        if ($flag == 1) {
+            for ($i = 2; $i <= $arrayCount; $i++) {
+                $isbn = $SheetDataKey['isbn'];
+                $title = $SheetDataKey['title'];
+                $author = $SheetDataKey['author'];
+                $publication = $SheetDataKey['publication'];
+                $volume = $SheetDataKey['volume'];
+                $year = $SheetDataKey['year'];
+                $edition = $SheetDataKey['edition'];
+                $reprint = $SheetDataKey['reprint'];
+                $binding = $SheetDataKey['binding'];
+                $pages = $SheetDataKey['pages'];
+                $weight = $SheetDataKey['weight'];
+                $mrp = $SheetDataKey['mrp'];
+                $category = $SheetDataKey['category'];
+                $flag = $SheetDataKey['flag'];
+                $isbn = filter_var(trim($allDataInSheet[$i][$isbn]), FILTER_SANITIZE_STRING);
+                $title = filter_var(trim($allDataInSheet[$i][$title]), FILTER_SANITIZE_STRING);
+                $author = filter_var(trim($allDataInSheet[$i][$author]), FILTER_SANITIZE_STRING);
+                $publication = filter_var(trim($allDataInSheet[$i][$publication]), FILTER_SANITIZE_STRING);
+                $volume = filter_var(trim($allDataInSheet[$i][$volume]), FILTER_SANITIZE_STRING);
+                $year = filter_var(trim($allDataInSheet[$i][$year]), FILTER_SANITIZE_STRING);
+                $edition = filter_var(trim($allDataInSheet[$i][$edition]), FILTER_SANITIZE_STRING);
+                $reprint = filter_var(trim($allDataInSheet[$i][$reprint]), FILTER_SANITIZE_STRING);
+                $binding = filter_var(trim($allDataInSheet[$i][$binding]), FILTER_SANITIZE_STRING);
+                $pages = filter_var(trim($allDataInSheet[$i][$pages]), FILTER_SANITIZE_STRING);
+                $weight = filter_var(trim($allDataInSheet[$i][$weight]), FILTER_SANITIZE_STRING);
+                $mrp = filter_var(trim($allDataInSheet[$i][$mrp]), FILTER_SANITIZE_STRING);
+                $category = filter_var(trim($allDataInSheet[$i][$category]), FILTER_SANITIZE_STRING);
+                $flag = filter_var(trim($allDataInSheet[$i][$flag]), FILTER_SANITIZE_STRING);
+                $fetchData[] = array('isbn' => $isbn,
+        					'title' => $title,
+        					'author' => $author,
+        					'publication' => $publication,
+        					'volume' => $volume,
+        					'year' => $year,
+        					'edition' => $edition,
+        					'reprint' => $reprint,
+        					'binding' => $binding,
+        					'pages' => $pages,
+        					'weight' => $weight,
+        					'mrp' => $mrp,
+        					'category' => $category,
+        					'flag' => $flag
+        				);
+            }           
+            $this->load->model('Upload_data','import');
+            $this->import->add_multiple_books($fetchData);
+            echo "	<script>
+				alert('".($arrayCount-1)." Books Added!!!');
+				window.location.href='';
+			</script>";
+        } else {
+            echo "	<script>
+				alert('Please import Correct File!!!');
+				window.location.href='';
+			</script>";
+        }
+    }
+    public function download_sample(){
+    	$this->load->helper('download');
+    	$fileName = 'sample.xlsx';
+    	$file = './assets/uploads/booksExcelData/'.$fileName;
+	    // check file exists    
+	    if (file_exists ( $file )) {
+	     // get file content
+	    $data = file_get_contents ( $file );
+	     //force download
+	    force_download ( $fileName, $data );
+    	}
+    }
 }

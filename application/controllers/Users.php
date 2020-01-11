@@ -19,4 +19,20 @@ class Users extends CI_Controller {
 		$this->load->model('Fetch');
 		return $this->Fetch->fetch_all_users();
 	}
+	public function activate_user($uId){
+		$this->load->model('Update');
+		$this->Update->activate_user($uId);
+		echo "	<script>
+					alert('".$uId." User Activated!!!');
+					window.location.href='..';
+				</script>";
+	}
+	public function deactivate_user($uId){
+		$this->load->model('Update');
+		$this->Update->deactivate_user($uId);
+		echo "	<script>
+					alert('".$uId." User Deactivated!!!');
+					window.location.href='..';
+				</script>";
+	}
 }

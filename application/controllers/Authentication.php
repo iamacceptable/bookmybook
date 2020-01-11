@@ -23,12 +23,20 @@ class Authentication extends CI_Controller {
 			$pass = $this->input->post('password');
 			$this->load->model('Fetch');
 			$result = $this->Fetch->auth($user, md5($pass));
-			$sessionData = array(
-				'userId' => $result[0]['id'],
-				'login' => 'true'
-			);
-			$this->session->set_userdata($sessionData);
-			redirect('Admin');
+			if($result != FALSE){
+				$sessionData = array(
+					'userId' => $result[0]['id'],
+					'login' => 'true'
+				);
+				$this->session->set_userdata($sessionData);
+				redirect('Admin');
+			}
+			else{
+				echo "<script>
+					alert('Invalid Username and Password!!!');
+					window.location.href='';
+					</script>";
+			}
 		}
 	}
 }

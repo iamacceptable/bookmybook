@@ -10,22 +10,26 @@
 	          <thead>
 	            <tr>
 	              <th>S.No.</th>
-	              <th>Book Title Filter</th>
+	              <th>Book Name</th>
+	              <th>Author Name</th>
+	              <th>Publisher</th>
 	              <th>User Who Searched</th>
-	              <th>Date</th>
-	              <th>Time</th>
+	              <th>Date &amp; Time</th>
 	              <th>Action</th>
 	            </tr>
 	          </thead>
 	          <tbody>
+	          	<?php $i=1; foreach($books as $book): ?>
 	            <tr>
-	              <td>1</td>
-	              <td>ABC</td>
-	              <td>XYZ</td>
-	              <td>25-10-2019</td>
-	              <td>1:56</td>
+	              <td><?= $i++;?></td>
+	              <td><?= $book['bookname'];?></td>
+	              <td><?= $book['authorName'];?></td>
+	              <td><?= $book['publisherName'];?></td>
+	              <td><?= $book['uid'];?></td>
+	              <td><?= $book['timedate'];?></td>
 	              <td><a href="#" class="text-success"><i class="ti-share"></i> Reply</a><a href="#" class="text-danger ml-2"><i class="ti-trash"></i> Delete</a></td>
 	            </tr>
+	        	<?php endforeach;?>
 	          </tbody>
 	        </table>
 	      </div>

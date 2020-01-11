@@ -19,14 +19,10 @@ class Admin extends CI_Controller {
 		redirect('Users');
 	}
 	public function all_orders(){
-		$dataLoad['header'] = 'Orders';
-		$dataLoad['sidebar'] = 'Orders';
-		$this->load->view('Orders/all_list',$dataLoad);
+		redirect('Orders/all_orders');
 	}
 	public function bmb_wallet(){
-		$dataLoad['header'] ='BMB Wallet';
-		$dataLoad['sidebar'] = 'Wallet';
-		$this->load->view('Wallet/wallet',$dataLoad);
+		redirect('Wallet');
 	}
 	public function refer_n_earn(){
 		$dataLoad['header'] ='Refer & Earn';
@@ -46,17 +42,13 @@ class Admin extends CI_Controller {
 		redirect('Books/new_book');
 	}
 	public function add_multiple_book(){
-		$dataLoad['header'] ='Add Multiple Book';
-		$dataLoad['sidebar'] = 'Books';
-		$this->load->view('Books/add_multiple_book',$dataLoad);
+		redirect('Books/add_multiple_book');
 	}
 	public function all_books(){
 		redirect('Books/all_books');
 	}
 	public function books_not_found(){
-		$dataLoad['header'] ='Filter Not found';
-		$dataLoad['sidebar'] = 'Books';
-		$this->load->view('Books/bnf',$dataLoad);
+		redirect('Books/books_not_found');
 	}
 	public function bills(){
 		$dataLoad['header'] ='Bills';

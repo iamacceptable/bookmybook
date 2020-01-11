@@ -2,8 +2,7 @@
 	<div class="col-md-12 grid-margin stretch-card">
 	  <div class="card">
 	    <div class="card-body">
-	    	<div class="text-right"> 
-	      		<a class="btn btn-success btn-sm" href="#">Export to Excel</a>
+	    	<div class="text-right">
 	      	</div>
 	      <div class="table-responsive">
 	        <table class="table table-hover">

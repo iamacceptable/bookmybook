@@ -4,7 +4,7 @@
 	    <div class="card-body">
 	      <p class="card-title mb-0">Click on the Book Title to view book's details.</p>
 	      <div class="table-responsive">
-	        <table class="table table-hover">
+	        <table class="table table-hover" id="exportDataTable">
 	          <thead>
 	            <tr class="text-center">
 	              <th>S.No.</th>

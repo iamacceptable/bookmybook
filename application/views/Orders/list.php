@@ -3,12 +3,10 @@
 	  <div class="card">
 	    <div class="card-body">
 	      <p class="card-title mb-0">Click on the Book Title to view book's details.</p>
-	      <div class="text-right"> 
-	      		<a class="btn btn-warning text-white btn-sm" href="#">Print All Reciepts</a>
-	      		<a class="btn btn-success btn-sm" href="#">Export to Excel</a>
+	      <div class="text-right">
 	      </div>
 	      <div class="table-responsive">
-	        <table class="table table-hover">
+	        <table class="table table-hover" id="exportDataTable">
 	          <thead>
 	            <tr>
 	              <th>S.No.</th>

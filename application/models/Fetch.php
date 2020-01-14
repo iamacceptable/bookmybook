@@ -51,7 +51,7 @@ class Fetch extends CI_Model {
 			return FALSE;
 	}
 	public function fetch_orders(){
-		$fetchOrdersQuery = "SELECT tbl_txn.uid, tbl_txn.txnid, tbl_txn.status, tbl_txn.price, tbl_txn.timedate, tbl_orders.id AS oi, tbl_orders.bid, tbl_orders.qty, tbl_books.* FROM tbl_orders JOIN tbl_txn ON tbl_orders.txnid=tbl_txn.txnid JOIN tbl_books ON tbl_orders.bid=tbl_books.id";
+		$fetchOrdersQuery = "SELECT tbl_txn.uid, tbl_txn.txnid, tbl_txn.status, tbl_txn.price, tbl_txn.timedate, tbl_orders.id AS oi, tbl_orders.bid, tbl_orders.qty, tbl_orders.currentStatus, tbl_books.* FROM tbl_orders JOIN tbl_txn ON tbl_orders.txnid=tbl_txn.txnid JOIN tbl_books ON tbl_orders.bid=tbl_books.id ORDER BY tbl_txn.timedate DESC";
 		$query = $this->db->query($fetchOrdersQuery);
 		return $query->result_array();
 	}
@@ -90,5 +90,19 @@ class Fetch extends CI_Model {
 		$this->db->where('tbl_orders.id',$orderId);
 		$result = $this->db->get();
 		return $result->row();
+	}
+	public function fetch_user_token($userId){
+		$this->db->select('token');
+		$this->db->from('tbl_users');
+		$this->db->where('id',$userId);
+		$result = $this->db->get();
+		return $result->row();
+	}
+	public function fetch_refer_n_earn(){
+		$this->db->select('tbl_refer.*,tbl_users.name');
+		$this->db->from('tbl_refer');
+		$this->db->join('tbl_users','tbl_refer.rfee=tbl_users.id');
+		$result = $this->db->get();
+		return $result->result_array();
 	}
 } 

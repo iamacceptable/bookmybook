@@ -24,4 +24,9 @@ class Update extends CI_Model {
 		$query = "UPDATE tbl_users SET wallet=wallet+'".$walletAmount."' WHERE id='".$userId."'";
 		$this->db->query($query);
 	}
+	public function update_order($orderId, $orderStatus){
+		$this->db->set('currentStatus',$orderStatus);
+		$this->db->where('id',$orderId);
+		$this->db->update('tbl_orders');
+	}
 }

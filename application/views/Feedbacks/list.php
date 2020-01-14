@@ -25,7 +25,7 @@
 	              <td><?= $feedback['source']?></td>
 	              <td><?= $feedback['comment']?></td>
 	              <td><?= $feedback['timendate']?></td>
-	              <td><a href="#" class="text-success"><i class="ti-share"></i> Reply</a></td>
+	              <td><a href="<?= base_url();?>index.php/Feedbacks/notify_user/<?= $feedback['userid'];?>" class="text-success"><i class="ti-share"></i> Reply</a></td>
 	            </tr>
 	        	<?php 
 	        		endforeach;

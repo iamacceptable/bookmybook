@@ -26,6 +26,7 @@ class Admin extends CI_Controller {
 	}
 	public function refer_n_earn(){
 		$dataLoad['header'] ='Refer & Earn';
+		$dataLoad['refers'] = $this->fertch_refer_n_earn();
 		$dataLoad['sidebar'] = 'Refer';
 		$this->load->view('Refer/refer',$dataLoad);
 	}
@@ -50,16 +51,16 @@ class Admin extends CI_Controller {
 	public function books_not_found(){
 		redirect('Books/books_not_found');
 	}
-	public function bills(){
-		$dataLoad['header'] ='Bills';
-		$dataLoad['sidebar'] = 'Receipts';
-		$this->load->view('Reciepts/bills',$dataLoad);
-	}
-	public function reports(){
-		$dataLoad['header'] ='Reports';
-		$dataLoad['sidebar'] = 'Receipts';
-		$this->load->view('Reciepts/reports',$dataLoad);
-	}
+	// public function bills(){
+	// 	$dataLoad['header'] ='Bills';
+	// 	$dataLoad['sidebar'] = 'Receipts';
+	// 	$this->load->view('Reciepts/bills',$dataLoad);
+	// }
+	// public function reports(){
+	// 	$dataLoad['header'] ='Reports';
+	// 	$dataLoad['sidebar'] = 'Receipts';
+	// 	$this->load->view('Reciepts/reports',$dataLoad);
+	// }
 	public function feedbacks(){
 		redirect('Feedbacks');
 	}
@@ -68,5 +69,8 @@ class Admin extends CI_Controller {
 		$this->session->unset_userdata($sessionData);
 		redirect('Authentication');
 	}
-
+	public function fertch_refer_n_earn(){
+		$this->load->model('Fetch');
+		return $this->Fetch->fetch_refer_n_earn();
+	}
 }

@@ -44,14 +44,18 @@
         </div>
       </li> -->
       <li class="nav-item nav-profile dropdown">
-        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+        <!-- <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
           <img src="<?= base_url();?>assets/images/faces/face28.jpg" alt="profile"/>
-        </a>
+        </a> -->
+        <a class="nav-link" href="<?= base_url();?>index.php/Admin/logout">
+            <i class="ti-power-off text-primary"></i>
+            Logout
+          </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-          <a class="dropdown-item">
+          <!-- <a class="dropdown-item">
             <i class="ti-settings text-primary"></i>
             Change Password
-          </a>
+          </a> -->
           <a class="dropdown-item" href="<?= base_url();?>index.php/Admin/logout">
             <i class="ti-power-off text-primary"></i>
             Logout

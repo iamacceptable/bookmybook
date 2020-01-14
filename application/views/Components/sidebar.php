@@ -23,13 +23,13 @@
         <i class="ti-shield menu-icon"></i>
         <span class="menu-title">Orders</span>
       </a>
-    </li><!-- 
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="<?= base_url();?>index.php/Admin/refer_n_earn">
         <i class="ti-share menu-icon"></i>
         <span class="menu-title">Refer &amp; Earn</span>
       </a>
-    </li> -->
+    </li>
     <li class="nav-item ">
       <a class="nav-link" data-toggle="collapse" href="#faq" aria-expanded="false" aria-controls="ui-basic">
         <i class="ti-bag menu-icon"></i>

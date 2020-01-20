@@ -24,6 +24,7 @@
                     <p><b>Binding:</b> <?= $binding;?></p>
                     <p><b>Total Pages:</b> <?= $pages;?></p>
                     <p><b>Total Weight:</b> <?= $weight;?></p>
+                    <p><b>MRP:</b> ₹<?= $originalMrp;?></p>
                     <p><b>Price:</b> ₹<?= $mrp;?></p>
                     <p class="text-center">
                         <?php if($flag == 'Available'){ ?>

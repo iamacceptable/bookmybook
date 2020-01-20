@@ -25,7 +25,7 @@
 	              <td><?= $refer['referCode'];?></td>
 	              <td><?= $refer['rfreid'];?></td>
 	              <td><?= $refer['name'];?></td>
-	              <td><?= $refer['timedate']?></td>
+	              <td><?= $refer['time']?></td>
 	            </tr>
 	            <?php
 	            	endforeach;

@@ -76,26 +76,30 @@
 	              	?>
 	              		<label class="badge badge-danger"><?= $order['currentStatus'];?></label></td>
 	              	<?php } ?>
-	              	<td>
-	              		<form action="<?= base_url();?>index.php/Orders/update_order_status" method="POST">
-		              		<div class="form-group text-center">
-	                    		<div class="input-group">
-			                     <select name="orderStatus" class="form-control form-control-sm">
-						             <option value="Packed"><?= 'Packed';?></option>
-						             <option value="Shipped"><?= 'Shipped';?></option>
-						             <option value="Delivered"><?= 'Delivered';?></option>
-						             <option value="Returned"><?= 'Returned';?></option>
-						             <option value="Cancelled"><?= 'Cancelled';?></option>
-					          	</select>
-					          	<input type="hidden" name="orderId" value="<?= $order['oi'];?>">	
-					          	<input type="hidden" name="txnId" value="<?= $order['txnid'];?>">	
-					          	<input type="hidden" name="userId" value="<?= $order['uid'];?>">	
-		                    	<div class="input-group-append">
-			                        <button class="btn btn-sm text-white btn-info" type="submit">UPDATE</button>
-		                      	</div>
-			                    </div>
-			                </div>
-		              	</form>
+	              	<td class="text-center">
+	              		<?php 
+	              			if($order['currentStatus'] != 'Returned' && $order['currentStatus'] != 'Cancelled'){
+	              		?>
+		              		<form action="<?= base_url();?>index.php/Orders/update_order_status" method="POST">
+			              		<div class="form-group text-center">
+		                    		<div class="input-group">
+				                     <select name="orderStatus" class="form-control form-control-sm">
+							             <option value="Packed"><?= 'Packed';?></option>
+							             <option value="Shipped"><?= 'Shipped';?></option>
+							             <option value="Delivered"><?= 'Delivered';?></option>
+						          	</select>
+						          	<input type="hidden" name="orderId" value="<?= $order['oi'];?>">	
+						          	<input type="hidden" name="txnId" value="<?= $order['txnid'];?>">	
+						          	<input type="hidden" name="userId" value="<?= $order['uid'];?>">	
+			                    	<div class="input-group-append">
+				                        <button class="btn btn-sm text-white btn-info" type="submit">UPDATE</button>
+			                      	</div>
+				                    </div>
+				                </div>
+			              	</form>
+		              	<?php } else{ ?>
+	              			<label class="badge badge-danger">No Actions</label></td>
+	              		<?php } ?>
 	              	</td>
 	              <td><a href="<?= base_url();?>index.php/Orders/generate_bill_slip/<?= $order['oi'];?>" target="_blank" class="text-success mr-3"><i class="ti-pin"></i> Generate Bill Slip</a></td>
 	            </tr>

@@ -12,6 +12,7 @@
 	              <th>Book Title</th>
 	              <th>Publication</th>
 	              <th>Status</th>
+	              <th>Action</th>
 	            </tr>
 	          </thead>
 	          <tbody>
@@ -21,13 +22,21 @@
 	              <td><?= $book['isbn'] ?></td>
 	              <td><a data-toggle="modal" data-target="#c<?= $book['isbn'];?>"><?= $book['title'] ?></a></td>
 	              <td><?= $book['publication'] ?></td>
-	              <td>
 	              	<?php if($book['flag'] == 'Available'){ ?>
-	              		<label class="badge badge-success">Available</label>
+	              		<td>
+	              			<label class="badge badge-success">Available</label>
+	              		</td>
+	              		<td>
+	              			<a href="<?= base_url();?>index.php/Books/book_not_available/<?= $book['id'];?>" class="text-danger"><i class="ti-pin"></i> Not Available</a>
+	              		</td>		
 	              	<?php } else{?>
-	              		<label class="badge badge-danger">Not Available</label>
+	              		<td>
+	              			<label class="badge badge-danger">Not Available</label>
+	              		</td>
+	              		<td>
+	              			<a href="<?= base_url();?>index.php/Books/book_available/<?= $book['id'];?>" class="text-success"><i class="ti-pin"></i> Available</a>
+	              		</td>
 	              	<?php }?>
-	              </td>
 	            </tr>
 	              <?php $this->view('Books/book_details',$book);?>
 	            <?php
@@ -35,7 +44,7 @@
 	            	if($i == 1){
 	            ?>
 	            <tr>
-	              <td class="text-center" colspan="5">No Books Yet!</td>
+	              <td class="text-center" colspan="6">No Books Yet!</td>
 	            </tr>
 	        	<?php }?>
 	          </tbody>

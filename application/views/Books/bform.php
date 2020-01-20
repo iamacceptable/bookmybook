@@ -52,6 +52,10 @@
           <small class="text-danger"><?= form_error('bweight');?></small>
         </div>
         <div class="form-group">
+          <input type="number" name="bomrp" class="form-control form-control-sm" id="spassword" placeholder="MRP (₹)" value="<?= set_value('bomrp');?>">
+          <small class="text-danger"><?= form_error('bomrp');?></small>
+        </div>
+        <div class="form-group">
           <input type="number" name="bmrp" class="form-control form-control-sm" id="spassword" placeholder="Price (₹)" value="<?= set_value('bmrp');?>">
           <small class="text-danger"><?= form_error('bmrp');?></small>
         </div>

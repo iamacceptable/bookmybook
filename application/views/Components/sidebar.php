@@ -96,5 +96,11 @@
         <span class="menu-title">Feedbacks</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?= base_url();?>index.php/Sliders">
+        <i class="ti-image menu-icon"></i>
+        <span class="menu-title">Sliders</span>
+      </a>
+    </li>
   </ul>
 </nav>

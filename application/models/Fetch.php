@@ -67,6 +67,13 @@ class Fetch extends CI_Model {
 		$getBooks = $this->db->get();
 		return $getBooks->result_array();
 	}
+	public function fetch_books_not_found_id($id){
+		$this->db->select('*');
+		$this->db->from('tbl_book_not_found');
+		$this->db->where('id',$id);
+		$getBooks = $this->db->get();
+		return $getBooks->row();
+	}
 	public function fetch_user_details_order_id($orderId){
 		$this->db->select('tbl_users.name, tbl_users.email, tbl_users.mobile, tbl_users.address, tbl_users.pincode');
 		$this->db->from('tbl_orders');

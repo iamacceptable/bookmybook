@@ -26,7 +26,7 @@
 	              <td><?= $book['publisherName'];?></td>
 	              <td><?= $book['uid'];?></td>
 	              <td><?= $book['timedate'];?></td>
-	              <!-- <td><a href="#" class="text-success"><i class="ti-share"></i> Reply</a><a href="#" class="text-danger ml-2"><i class="ti-trash"></i> Delete</a></td> -->
+	              <td><a href="<?= base_url();?>index.php/Books/notify_user/<?= $book['uid'];?>/<?= $book['id'];?>" class="text-success"><i class="ti-share"></i> Reply</a></td>
 	            </tr>
 	        	<?php endforeach;?>
 	          </tbody>

@@ -29,4 +29,9 @@ class Update extends CI_Model {
 		$this->db->where('id',$orderId);
 		$this->db->update('tbl_orders');
 	}
+	public function change_book_status($bookId, $status){
+		$this->db->set('flag', $status);
+		$this->db->where('id', $bookId);
+		$this->db->update('tbl_books');
+	}
 }
